@@ -80,3 +80,41 @@ function getAttendance() {
     }
 
     getWagePerMonth();
+
+    function maxHrsReached() {
+        let empHr = 0;
+        let total = 0;
+        let days = 0;
+        let workHr = 0;
+        
+        while(days < 20 && workHr < 160) {
+        let emp =  Math.floor(Math.random() * 10) %  3;
+        switch(emp) { 
+            case 0:
+                console.log("Employee is Present");
+                empHr = 8;
+                break;
+            case 1:
+                console.log("Employee is part time");
+                empHr = 4;
+                break;
+            case 2:
+                console.log("Employee is Absent");
+                empHr = 0;
+                break;
+            default:
+                console.log("condition does not exist");
+        }
+        
+        let dailyWage = (SALARY_PER_HR * empHr);
+        total = (total + dailyWage);
+        days = (days+1);
+        workHr = (workHr + empHr);
+        }
+        
+        console.log("totalsalary will be: " + total);
+        console.log("total working days will be: " + days);
+        console.log("total working hours will be: " + workHr);
+    }
+
+    maxHrsReached();
